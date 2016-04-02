@@ -44,7 +44,7 @@ function createSaveAndShowArticle() {
     try {
         saveArticle(newArticle, true);
     } catch (e) {
-        //TODO
+        //TODO Обработать исключения при сохранении статьи
     }
     showArticle(newArticle);
     clearFields();
@@ -53,7 +53,7 @@ function createSaveAndShowArticle() {
 function saveArticle (article, newArticle) {
     var articles = getArticles();
     if (!newArticle){
-        //TODO
+        //TODO Вызываем функцию редактирования статьи
         return;
     }
     articles.push(article);
