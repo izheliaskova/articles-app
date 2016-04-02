@@ -50,9 +50,9 @@ function createSaveAndShowArticle() {
     clearFields();
 }
 
-function saveArticle (article, newArticle) {
+function saveArticle(article, newArticle) {
     var articles = getArticles();
-    if (!newArticle){
+    if (!newArticle) {
         //TODO Вызываем функцию редактирования статьи
         return;
     }
@@ -77,9 +77,15 @@ function getHtmlRowForArticles() {
 }
 
 function createHtmlArticle(article) {
+    var htmlArticleCol = document.createElement("div");
+    htmlArticleCol.className = "col-sm-4";
     var htmlArticle = document.createElement("div");
-    htmlArticle.id = article.id;
-    htmlArticle.className = "col-sm-4 article";
+    htmlArticleCol.id = article.id;
+    htmlArticle.className = "article";
+    var closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "close";
+    closeButton.innerHTML = "&times;";
     var title = document.createElement("h2");
     title.innerHTML = article.title;
     var preview = document.createElement("p");
@@ -91,13 +97,15 @@ function createHtmlArticle(article) {
     link.setAttribute("role", "button");
     link.innerHTML = "View details »";
     button.appendChild(link);
+    htmlArticle.appendChild(closeButton);
     htmlArticle.appendChild(title);
     htmlArticle.appendChild(preview);
     htmlArticle.appendChild(button);
-    return htmlArticle;
+    htmlArticleCol.appendChild(htmlArticle);
+    return htmlArticleCol;
 }
 
-function showArticle (article) {
+function showArticle(article) {
     var row = getHtmlRowForArticles();
     var htmlArticle = createHtmlArticle(article);
     row.appendChild(htmlArticle);
