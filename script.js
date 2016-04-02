@@ -79,7 +79,7 @@ function getHtmlRowForArticles() {
 function createHtmlArticle(article) {
     var htmlArticle = document.createElement("div");
     htmlArticle.id = article.id;
-    htmlArticle.className = "article col-md-4";
+    htmlArticle.className = "col-sm-4 article";
     var title = document.createElement("h2");
     title.innerHTML = article.title;
     var preview = document.createElement("p");
