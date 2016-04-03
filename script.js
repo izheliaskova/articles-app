@@ -10,7 +10,12 @@ function getArticles() {
     return JSON.parse(localStorage.getItem(LS_ARTICLES_KEY));
 }
 
+function setArticles(articles) {
+    localStorage.setItem(LS_ARTICLES_KEY, JSON.stringify(articles));
+}
+
 function getAndShowAllArticles() {
+    document.getElementById("articleContainer").innerHTML = "";
     var articles = getArticles();
     for (var i = 0; i < articles.length; i++) {
         showArticle(articles[i]);
@@ -57,7 +62,7 @@ function saveArticle(article, newArticle) {
         return;
     }
     articles.push(article);
-    localStorage.setItem(LS_ARTICLES_KEY, JSON.stringify(articles));
+    setArticles(articles);
 }
 
 function getHtmlRowForArticles() {
@@ -78,8 +83,16 @@ function getHtmlRowForArticles() {
 }
 
 function deleteArticle(articleId) {
-    //TODO Реализовать удаление статьи
-    console.log(articleId);
+    var articles = getArticles();
+    for (var i = 0; i < articles.length; i++) {
+        var article = articles[i];
+        if (article.id === articleId) {
+            articles.splice(i, 1);
+            break;
+        }
+    }
+    setArticles(articles);
+    getAndShowAllArticles();
 }
 
 function createHtmlArticle(article) {
