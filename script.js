@@ -62,13 +62,14 @@ function saveArticle(article, newArticle) {
 
 function getHtmlRowForArticles() {
     var articleContainer = document.getElementById("articleContainer");
-    var allRows = articleContainer.getElementsByClassName("row");
-    var row = allRows[allRows.length - 1];
-    var articlesInRow;
+    var rows = articleContainer.getElementsByClassName("row");
+    var row = rows.lastChild;
+    var newRowNeeded = !row;
     if (row) {
-        articlesInRow = row.getElementsByClassName("article col-md-4");
+        var articlesInRow = row.getElementsByTagName("div");
+        newRowNeeded = articlesInRow.length === 3;
     }
-    if (!row || articlesInRow.length === 3) {
+    if (newRowNeeded) {
         row = document.createElement("div");
         row.className = "row";
         articleContainer.appendChild(row);
@@ -76,18 +77,24 @@ function getHtmlRowForArticles() {
     return row;
 }
 
+function deleteArticle(articleId) {
+    //TODO Реализовать удаление статьи
+    console.log(articleId);
+}
+
 function createHtmlArticle(article) {
     var htmlArticleCol = document.createElement("div");
     htmlArticleCol.className = "col-sm-4";
     var htmlArticle = document.createElement("div");
-    htmlArticleCol.id = article.id;
+    htmlArticle.id = article.id;
     htmlArticle.className = "article";
     var closeButton = document.createElement("button");
     closeButton.type = "button";
     closeButton.className = "close";
     closeButton.innerHTML = "&times;";
+    closeButton.setAttribute("onclick", "deleteArticle(" + article.id + ")");
     var title = document.createElement("h2");
-    title.innerHTML = article.title;
+    title.innerHTML = article.title + " (" + article.id + ")";
     var preview = document.createElement("p");
     preview.innerHTML = getArticlePreview(article.text, MAX_TITLE_LEN);
     var button = document.createElement("p");
