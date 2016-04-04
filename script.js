@@ -82,15 +82,32 @@ function getHtmlRowForArticles() {
     return row;
 }
 
-function deleteArticle(articleId) {
-    var articles = getArticles();
-    for (var i = 0; i < articles.length; i++) {
-        var article = articles[i];
-        if (article.id === articleId) {
-            articles.splice(i, 1);
-            break;
+function findArticleIndexById(id, articles) {
+    var lowIndex = 0;
+    var highIndex = articles.length - 1;
+    while (true) {
+        var index = Math.round((lowIndex + highIndex) / 2);
+        if (lowIndex > highIndex) {
+            return null;
+        }
+        if (articles[index].id === id) {
+            return index;
+        }
+        if (articles[index].id < id) {
+           lowIndex = index + 1;
+        } else {
+           highIndex = index - 1;
         }
     }
+}
+
+function deleteArticle(articleId) {
+    var articles = getArticles();
+    var articleIndex = findArticleIndexById(articleId, articles);
+    if (articleIndex === null) {
+        throw new Error("Индекс статьи не найден");
+    }
+    articles.splice(articleIndex, 1);
     setArticles(articles);
     getAndShowAllArticles();
 }
@@ -130,6 +147,22 @@ function showArticle(article) {
     var htmlArticle = createHtmlArticle(article);
     row.appendChild(htmlArticle);
 }
+
+
+
+
+var articles = [{id: 1}, {id: 2}, {id: 4}, {id: 6}, {id: 9}, {id: 17}, {id: 22}];
+//for (var i = 1; i <= 100; i++) {
+//    articles.push({id: i});
+//}
+
+
+
+var articleId = 0;
+var index = findArticleIndexById(articleId, articles);
+console.log(index);
+
+
 
 
 
