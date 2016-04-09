@@ -1,6 +1,9 @@
-var MAX_TITLE_LEN = 250;
 var LS_ARTICLES_KEY = 'articles';
 var LS_SEQUENCE_KEY = 'sequence';
+
+var maxTitleLength = 40;
+var maxPreviewLength = 150;
+var articlesInRow = 3;
 
 createValueInLocalStorageIfDoesNotExist(LS_ARTICLES_KEY, []);
 createValueInLocalStorageIfDoesNotExist(LS_SEQUENCE_KEY, 0);
@@ -15,14 +18,17 @@ function setArticles(articles) {
 }
 
 function getAndShowAllArticles() {
-    document.getElementById("articleContainer").innerHTML = "";
-    var articles = getArticles();
-    for (var i = 0; i < articles.length; i++) {
-        showArticle(articles[i]);
-    }
+//    document.getElementById("articleContainer").innerHTML = "";
+//    var articles = getArticles();
+//    for (var i = 0; i < articles.length; i++) {
+//        showArticle(articles[i]);
+//    }
 }
 
 function getArticlePreview(art, maxTitleLen) {
+    if (art.length <= maxTitleLen) {
+        return art;
+    }
     var cutIndex = art.slice(0, maxTitleLen - 2).lastIndexOf(" ");
     return art.slice(0, cutIndex == -1 ? -3 : cutIndex) + "...";
 }
@@ -67,12 +73,10 @@ function saveArticle(article, newArticle) {
 
 function getHtmlRowForArticles() {
     var articleContainer = document.getElementById("articleContainer");
-    var rows = articleContainer.getElementsByClassName("row");
-    var row = rows.lastChild;
+    var row = articleContainer.lastElementChild;
     var newRowNeeded = !row;
     if (row) {
-        var articlesInRow = row.getElementsByTagName("div");
-        newRowNeeded = articlesInRow.length === 3;
+        newRowNeeded = row.childElementCount === articlesInRow;
     }
     if (newRowNeeded) {
         row = document.createElement("div");
@@ -114,7 +118,7 @@ function deleteArticle(articleId) {
 
 function createHtmlArticle(article) {
     var htmlArticleCol = document.createElement("div");
-    htmlArticleCol.className = "col-sm-4";
+    htmlArticleCol.className = "col-sm-" + (12 / articlesInRow);
     var htmlArticle = document.createElement("div");
     htmlArticle.id = article.id;
     htmlArticle.className = "article";
@@ -123,21 +127,24 @@ function createHtmlArticle(article) {
     closeButton.className = "close";
     closeButton.innerHTML = "&times;";
     closeButton.setAttribute("onclick", "deleteArticle(" + article.id + ")");
-    var title = document.createElement("h2");
-    title.innerHTML = article.title + " (" + article.id + ")";
+    var title = document.createElement("h3");
+    title.className = "article-title";
+    title.innerHTML = getArticlePreview(article.title, maxTitleLength);
     var preview = document.createElement("p");
-    preview.innerHTML = getArticlePreview(article.text, MAX_TITLE_LEN);
-    var button = document.createElement("p");
-    var link = document.createElement("a");
-    link.className = "btn btn-default";
-    link.href = "#";
-    link.setAttribute("role", "button");
-    link.innerHTML = "View details »";
-    button.appendChild(link);
+    preview.className = "article-preview";
+    preview.innerHTML = getArticlePreview(article.text, maxPreviewLength);
+    var buttonBlock = document.createElement("p");
+    buttonBlock.className = "article-footer";
+    var button = document.createElement("a");
+    button.className = "btn btn-default";
+    button.href = "#";
+    button.setAttribute("role", "button");
+    button.innerHTML = "View details »";
+    buttonBlock.appendChild(button);
     htmlArticle.appendChild(closeButton);
     htmlArticle.appendChild(title);
     htmlArticle.appendChild(preview);
-    htmlArticle.appendChild(button);
+    htmlArticle.appendChild(buttonBlock);
     htmlArticleCol.appendChild(htmlArticle);
     return htmlArticleCol;
 }
@@ -148,23 +155,15 @@ function showArticle(article) {
     row.appendChild(htmlArticle);
 }
 
-
-
-
-var articles = [{id: 1}, {id: 2}, {id: 4}, {id: 6}, {id: 9}, {id: 17}, {id: 22}];
-//for (var i = 1; i <= 100; i++) {
-//    articles.push({id: i});
-//}
-
-
-
-var articleId = 0;
-var index = findArticleIndexById(articleId, articles);
-console.log(index);
-
-
-
-
-
-
-
+function changeArticlesCountInRow(count) {
+    articlesInRow = count;
+    if (count === 2) {
+        maxTitleLength = 60;
+        maxPreviewLength = 250;
+    }
+    if (count === 3) {
+        maxTitleLength = 40;
+        maxPreviewLength = 150;
+    }
+    getAndShowAllArticles();
+}

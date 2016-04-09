@@ -49,11 +49,18 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h1>Hello, world!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                <h2>Hello, world!</h2>
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                     Добавить статью »
                 </button>
+                <div class="button-for-articles pull-right">
+                    <button class="btn btn-default btn-lg" type="button" onclick="changeArticlesCountInRow(2)">
+                        <span class="glyphicon glyphicon-th-large"></span>
+                    </button>
+                    <button class="btn btn-default btn-lg" type="button" onclick="changeArticlesCountInRow(3)">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </button>
+                </div>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -83,18 +90,24 @@
 
         <div class="container">
             <div id="articleContainer">
-                <!--<div class="row">-->
-                    <!--<div class="col-sm-4">-->
-                        <!--<div id="123456" class="article">-->
-                            <!--<button type="button" class="close" onclick="deleteArticle(123456)">&times;</button>-->
-                            <!--<h2>Структура кода</h2>-->
-                            <!--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula-->
-                                <!--porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut-->
-                                <!--fermentum massa justo sit amet risus.</p>-->
-                            <!--<p><a class="btn btn-default" href="#" role="button">View details »</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div class="col-sm-6">
+                    <div id="20" class="article">
+                        <div class="task-bar">
+                            <div class="creation-date">Создан: 10-03-2016</div>
+                            <span class="glyphicon glyphicon-remove pull-right" onclick="deleteArticle(22)"></span>
+                            <span class="glyphicon glyphicon-pencil pull-right" onclick="editArticle(22)"></span>
+                        </div>
+                        <h3 class="title">Повседневная практика</h3>
+                        <div class="preview">
+                            Повседневная практика показывает, что дальнейшее развитие различных
+                            Повседневная практика показывает, что дальнейшее развитие различных
+                            Повседневная практика показывает, что дальнейшее развитие различных
+                        </div>
+                        <div class="footer">
+                            <a class="btn btn-default" href="#" role="button">View details »</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <hr>
         </div>
