@@ -15,7 +15,7 @@ body {
     border: 1px solid #848482;
     border-radius: 5px;
     padding: 10px;
-    background-color: #F2F3F4;
+    background-color: #f6f7f8;
 }
 
 .article .footer {
@@ -35,7 +35,7 @@ body {
 }
 
 .article .task-bar .glyphicon:hover {
-    color: #777777;
+    color: #626262;
     cursor: pointer;
 }
 
@@ -47,4 +47,14 @@ body {
 
 .creation-date {
     float: left;
+}
+
+.footer:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.footer div {
+    font-size: 12px;
 }
