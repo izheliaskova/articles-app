@@ -1,0 +1,114 @@
+body {
+	font-family: 'Ubuntu Mono', 'Open Sans', sans-serif;
+}
+
+/*=====Navbar=====*/
+.navbar-default .navbar-nav > li > a {
+	text-transform: capitalize;
+}
+
+.navbar-default .navbar-nav > li:hover > a {
+	background: #E7E7E7;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+/*===== Article controls ======*/
+.article-controls {
+	float: right;
+}
+
+.article-controls .glyphicon {
+	float: right;
+	margin-left: 10px;
+	color: #99999A;
+}
+
+.article-controls .glyphicon:hover {
+	color: #333;
+}
+
+/*===== Article =====*/
+.article {
+	border: 1px solid #C3C1C6;
+	border-radius: 5px;
+	padding: 10px 15px;
+	position: relative;
+}
+
+.article main {
+	height: 200px;
+	padding: 10px 0;
+}
+
+.article main h2 {
+	margin: 0;
+	padding: 0;
+}
+
+.article footer {
+	height: 50px;
+}
+
+.article footer table {
+	width: 100%;
+}
+
+.article footer table tr td:nth-child(2)  {
+	text-align: right !important;
+}
+
+/*=====SignInUp=====*/
+.signin h1,
+.signup h1 {
+	margin-bottom: 25px;
+	margin-left: 17%;
+}
+
+.chart-sign {
+	height: 75px;
+}
+
+.md-page {
+	width: 50%;
+	margin: auto;
+}
+
+.signin .gap,
+.signup .gap {
+	margin-bottom: 40px;
+}
+
+.form-group .btn-default {
+	background: #5BBC5B;
+	font-weight: bold;
+	color: #fff;
+}
+
+#sign-in, 
+#sign-up {
+	padding-top: 20px;
+}
+
+/*=====Form=====*/
+.form-container {
+	border: 1px solid yellow;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.form-line {
+	height: 20px;
+	margin-bottom: 10px;
+}
+
+.form-line span {
+	line-height: 20px;
+}
+
+.form-line input {
+	/*float: right;*/
+	width: 90%;
+}
