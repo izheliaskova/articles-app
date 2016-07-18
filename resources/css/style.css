@@ -1,114 +1,81 @@
 body {
-	font-family: 'Ubuntu Mono', 'Open Sans', sans-serif;
+	font-family: 'Raleway', 'Open Sans', sans-serif;
 }
 
-/*=====Navbar=====*/
-.navbar-default .navbar-nav > li > a {
-	text-transform: capitalize;
+.header {
+	padding-top: 50px;
+	padding-bottom: 15px;
 }
 
-.navbar-default .navbar-nav > li:hover > a {
-	background: #E7E7E7;
-}
-
-.navbar {
+.jumbotron {
 	margin-bottom: 0;
 }
 
-/*===== Article controls ======*/
-.article-controls {
-	float: right;
+.navbar-hover li:hover {
+	background-color: #e7e7e7;
+ }
+
+form.md-form {
+	width: 50%;
+	margin: 0 auto;
 }
 
-.article-controls .glyphicon {
-	float: right;
-	margin-left: 10px;
-	color: #99999A;
+form .form-title {
+	margin-bottom: 20px;
 }
 
-.article-controls .glyphicon:hover {
-	color: #333;
+.modal-content {
+	background-color: #eee;
 }
 
-/*===== Article =====*/
+.modal-body {
+	background-color: #fff;
+}
+
 .article {
-	border: 1px solid #C3C1C6;
-	border-radius: 5px;
-	padding: 10px 15px;
-	position: relative;
+	border: 1px solid #eee;
+	padding: 10px;
+	border-radius: 6px;
+	height: 313px;
 }
 
 .article main {
 	height: 200px;
-	padding: 10px 0;
 }
 
-.article main h2 {
-	margin: 0;
-	padding: 0;
+.article-controls .glyphicon {
+	margin-left: 5px;
+	color: #8a8a8a;
+}
+
+.article-controls a {
+	text-decoration: none;
+}
+
+.article-controls [class*='pencil']:hover {
+	color: green;
+}
+
+.article-controls [class*='remove']:hover {
+	color: red;
 }
 
 .article footer {
-	height: 50px;
+	border-top: 1px solid #eee;
+	padding-top: 10px;
 }
 
-.article footer table {
-	width: 100%;
+.article footer::after {
+	content: '';
+	display: block;
+	clear: both;
 }
 
-.article footer table tr td:nth-child(2)  {
-	text-align: right !important;
+.view-btn {
+	margin-top: 3px;
 }
 
-/*=====SignInUp=====*/
-.signin h1,
-.signup h1 {
-	margin-bottom: 25px;
-	margin-left: 17%;
+.superheight {
+	height: 1000px;
 }
 
-.chart-sign {
-	height: 75px;
-}
-
-.md-page {
-	width: 50%;
-	margin: auto;
-}
-
-.signin .gap,
-.signup .gap {
-	margin-bottom: 40px;
-}
-
-.form-group .btn-default {
-	background: #5BBC5B;
-	font-weight: bold;
-	color: #fff;
-}
-
-#sign-in, 
-#sign-up {
-	padding-top: 20px;
-}
-
-/*=====Form=====*/
-.form-container {
-	border: 1px solid yellow;
-	width: 70%;
-	margin: 0 auto;
-}
-
-.form-line {
-	height: 20px;
-	margin-bottom: 10px;
-}
-
-.form-line span {
-	line-height: 20px;
-}
-
-.form-line input {
-	/*float: right;*/
-	width: 90%;
-}

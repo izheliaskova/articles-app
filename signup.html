@@ -1,109 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>template</title>
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Sigh up</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="resources/css/style.css">
+	</head>
 <body>
-	
-	<header>
-		<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="container">
 		    	<div class="navbar-header">
-		    	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		    	    <span class="sr-only">Toggle navigation</span>
-		    	    <span class="icon-bar"></span>
-		    	    <span class="icon-bar"></span>
-		    	    <span class="icon-bar"></span>
-		    	  </button>
+			    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				    	<span class="icon-bar"></span>
+				    	<span class="icon-bar"></span>
+				    	<span class="icon-bar"></span>
+			    	</button>
 		    	  <a class="navbar-brand" href="index.html">Project name</a>
 		    	</div>
-		    			
-		    	<!-- Collect the nav links, forms, and other content for toggling -->
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    	  <ul class="nav navbar-nav">
-		    	    <li><a href="index.html">home<span class="sr-only">(current)</span></a></li>
-		    	    <li><a href="about.html">about</a></li>	    	    
-		    	    <li><a href="contacts.html">contacts</a></li>	    	    
+		    	  <ul class="nav navbar-nav navbar-hover">
+		    	    <li><a href="index.html">Home</a></li>
+		    	    <li><a href="about.html">About</a></li> 
+		    	    <li><a href="contacts.html">Contacts</a></li>	    
 		    	  </ul>
-		    	  <ul class="nav navbar-nav navbar-right">
-		    	    <li><a href="signin.html">войти</a></li>
-		    	    <li class="active"><a href="signup.html">зарегистрироваться</a></li>
+		    	  <ul class="nav navbar-nav navbar-hover navbar-right">
+		    	    <li class="active"><a href="signin.html">Sign in</a></li>
+		    	    <li><a href="signup.html">Sign up</a></li>
 		    	  </ul>
-		    	</div><!-- /.navbar-collapse -->
+		    	</div>
 		    </div>
-		  </div><!-- /.container-fluid -->
+		  </div>
 		</nav>
-	</header>
-	
-	<div class="chart-sign"></div>
 
-	<section class="signup">
-		<div class="container">
-			<div class="md-page">
-		  		<h1>Sign Up</h1>
-		  		<form class="form-horizontal">
-		  			<div class="form-group">
-					    <label for="exampleInputName2" class="col-sm-2 control-label">First Name</label>
-					    <div class="col-sm-10">
-					      	<input type="text" class="form-control" id="exampleInputName2" placeholder="E.g. Ashwin">
-				    	</div>
-				    </div>
-				    <div class="form-group">
-					    <label for="exampleInputName2" class="col-sm-2 control-label">Last Name</label>
-					    <div class="col-sm-10">
-					      	<input type="text" class="form-control" id="exampleInputName2" placeholder="E.g. Hedge">
-					    </div>
-				  	</div>
-					<div class="form-group">
-					    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-					    <div class="col-sm-10">
-					      	<input type="email" class="form-control" id="inputEmail3" placeholder="E.g. aswinh@cybage.com">
-					    </div>
-					 </div>
-					 <div class="form-group">
-					    <label for="exampleInputName2" class="col-sm-2 control-label">Username</label>
-					    <div class="col-sm-10">
-					      	<input type="text" class="form-control" id="exampleInputName2" placeholder="E.g. ashwinhegde">
-					    </div>
-				  	</div>
-				  	<div class="form-group gap">
-				    	<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-				    	<div class="col-sm-10">
-				      		<input type="password" class="form-control" id="inputPassword3" placeholder="Min. 8 Characters">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<div class="col-sm-offset-2 col-sm-10">
-				      		<button type="submit" class="btn btn-default">Sign in</button>
-				      		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#sign-up" aria-expanded="false" aria-controls="sign-up">Help</button>
-				      		<div class="collapse" id="sign-up">
-									<div class="well">
-									<p>заповни форму, недоумку</p>    
-									</div>
-							</div>
-				    	</div>
-				  	</div>
-				</form>
-			</div>
-		</div>
-	</section>
+	<header class="header"></header>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<main class="container">
+		<form class="form-horizontal md-form"">
+	  		<h1 class="form-title col-sm-offset-2 col-sm-10">Sign Up</h1>
+  			<div class="form-group">
+			    <label for="first-name" class="col-sm-2 control-label">First Name</label>
+			    <div class="col-sm-10">
+			      	<input type="text" class="form-control" id="first-name" placeholder="E.g. John">
+		    	</div>
+		    </div>
+		    <div class="form-group">
+			    <label for="last-name" class="col-sm-2 control-label">Last Name</label>
+			    <div class="col-sm-10">
+			      	<input type="text" class="form-control" id="last-name" placeholder="E.g. Smith">
+			    </div>
+		  	</div>
+			<div class="form-group">
+			    <label for="e-mail" class="col-sm-2 control-label">Email</label>
+			    <div class="col-sm-10">
+			      	<input type="email" class="form-control" id="e-mail" placeholder="E.g. john@gmail.com">
+			    </div>
+			 </div>
+			 <div class="form-group">
+			    <label for="sign-up-user-name" class="col-sm-2 control-label">Username</label>
+			    <div class="col-sm-10">
+			      	<input type="text" class="form-control" id="sign-up-user-name" placeholder="E.g. JohnSmith79">
+			    </div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="sign-up-password" class="col-sm-2 control-label">Password</label>
+		    	<div class="col-sm-10">
+		      		<input type="password" class="form-control" id="sign-up-password" placeholder="Min. 8 Characters">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-offset-2 col-sm-10">
+		      		<button type="submit" class="btn btn-success">Sign in</button>
+		    	</div>
+		  	</div>
+		</form>
+	</main>
+
+	<footer class="superheight"></footer>
+
+	<!-- Common libs -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <!-- end common libs -->
 </body>
 </html>
