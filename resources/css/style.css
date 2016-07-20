@@ -75,6 +75,10 @@ form .form-title {
 	margin-top: 3px;
 }
 
+.col-md-6 {
+	padding-left: 0;
+}
+
 .superheight {
 	height: 1000px;
 }
