@@ -16,37 +16,33 @@ var createElement = function (name, attributes) {
 var _ = createElement;
 
 function createArticleElement() {
-	var glyphiconPencil = createElement(
-		'a', {'href': '#'},
-		_('span', {'class': 'glyphicon glyphicon-pencil'})
+	var articleHeader = createElement(
+		'header', {},
+			_('span', {}, 'Creation date:'),
+			_('time', {'datetime': '2016-04-10'}, '10-04-2016'),
+				_('div', {'class': 'article-controls pull-right'},
+					_('a', {'href': '#'},
+						_('span', {'class': 'glyphicon glyphicon-pencil'})),
+					_('a', {'href': '#'},
+						_('span', {'class': 'glyphicon glyphicon-remove'})))
 	);
-	var glyphiconRemove = createElement(
-		'a', {'href': '#'},
-		_('span', {'class': 'glyphicon glyphicon-remove'})
-	);
-	var articleControls = createElement(
-		'div',
-		{'class': 'article-controls pull-right'},
-		glyphiconPencil, glyphiconRemove);
-	var span = createElement('span', {}, 'Creation date:');
-	var time = createElement('time', {'datetime': '2016-04-10'}, '10-04-2016');
-	var articleHeader = createElement('header', {}, span, time, articleControls);
-	var articleTitle = createElement('h2', {}, 'Big Ben');
-	var articleText = createElement('p', {},
+	var articleContent = createElement('main', {},
+		_('h2', {}, 'Big Ben'),
+		_('p', {},
 		'The big clock on the tower of the Palace of Westminster ' +
-		'in London is often called Big Ben.');
-	var articleContent = createElement('main', {}, articleTitle, articleText);
-	var authorContainer = createElement(
-		'div', {'class': 'pull-left'},
-			_('span', {'class': 'glyphicon glyphicon-user'}),
-			'Author:',
-			_('br', {}),
-			'Iryna Zheliaskova'
+		'in London is often called Big Ben.')
 	);
-
-	var button = createElement('button', {'class': 'btn btn-default pull-right view-btn',
-		'type': 'button'}, "View details >>");
-	var articleFooter = createElement('footer', {}, authorContainer, button);
+	var articleFooter = createElement(
+		'footer', {},
+			_('div', {'class': 'pull-left'},
+				_('span', {'class': 'glyphicon glyphicon-user'}),
+				'Author:',
+				_('br', {}),
+				'Iryna Zheliaskova'),
+		_('button', {'class': 'btn btn-default pull-right view-btn',
+			'type': 'button'},
+			"View details >>")
+	);
 	var article = createElement(
 		'article',
 		{'class': 'article'},
