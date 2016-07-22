@@ -1,6 +1,7 @@
 var createElement = function (name, attributes) {
 	var elem = document.createElement(name);
 	for (var attr in attributes) {
+		if (!attributes.hasOwnProperty(attr)) continue;
 		elem.setAttribute(attr, attributes[attr]);
 	}
 	for (var i = 2; i < arguments.length; i++) {
@@ -20,27 +21,26 @@ function createArticleElement() {
 		'header', {},
 			_('span', {}, 'Creation date:'),
 			_('time', {'datetime': '2016-04-10'}, '10-04-2016'),
-				_('div', {'class': 'article-controls pull-right'},
-					_('a', {'href': '#'},
-						_('span', {'class': 'glyphicon glyphicon-pencil'})),
-					_('a', {'href': '#'},
-						_('span', {'class': 'glyphicon glyphicon-remove'})))
+			_('div', {'class': 'article-controls pull-right'},
+				_('a', {'href': '#'},
+					_('span', {'class': 'glyphicon glyphicon-pencil'})),
+				_('a', {'href': '#'},
+					_('span', {'class': 'glyphicon glyphicon-remove'})))
 	);
-	var articleContent = createElement('main', {},
-		_('h2', {}, 'Big Ben'),
-		_('p', {},
-		'The big clock on the tower of the Palace of Westminster ' +
-		'in London is often called Big Ben.')
+	var articleContent = createElement(
+		'main', {},
+			_('h2', {}, 'Big Ben'),
+			_('p', {}, 'Some text')
 	);
 	var articleFooter = createElement(
 		'footer', {},
 			_('div', {'class': 'pull-left'},
 				_('span', {'class': 'glyphicon glyphicon-user'}),
-				'Author:',
+				' Author:',
 				_('br', {}),
 				'Iryna Zheliaskova'),
-		_('button', {'class': 'btn btn-default pull-right view-btn',
-			'type': 'button'},
+		_('button',
+			{'class': 'btn btn-default pull-right view-btn', 'type': 'button'},
 			"View details >>")
 	);
 	var article = createElement(
