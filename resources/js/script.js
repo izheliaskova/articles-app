@@ -61,7 +61,23 @@ row.appendChild(col);
 var articleContainer = document.getElementById("articleContainer");
 articleContainer.appendChild(row);
 
+function getNextId() {
 
+}
+
+function createArticle() {
+	var title = document.getElementById('articleTitle').value;
+    var content = document.getElementById('articleContent').value;
+	var article = {
+		id: 1,
+		creationDate: '10-04-2016',
+		author: 'Iryna Zheliaskova',
+		title: title,
+		content: content
+	};
+	console.log(article);
+	localStorage.setItem('article', JSON.stringify(article));
+}
 
 
 
