@@ -1,3 +1,9 @@
+var LS_ARTICLES_KEY = 'articles';
+var LS_ARTICLES_SEQUENCE_KEY = 'sequence';
+
+// localStorage.setItem(LS_ARTICLES_KEY, JSON.stringify({}));
+// localStorage.setItem(LS_ARTICLES_SEQUENCE_KEY, JSON.stringify(1));
+
 var createElement = function (name, attributes) {
 	var elem = document.createElement(name);
 	for (var attr in attributes) {
@@ -62,21 +68,38 @@ var articleContainer = document.getElementById("articleContainer");
 articleContainer.appendChild(row);
 
 function getNextId() {
+	var id = localStorage.getItem(LS_ARTICLES_SEQUENCE_KEY);
+	localStorage.setItem(LS_ARTICLES_SEQUENCE_KEY, ++id);
+	return id;
+}
 
+function clearFields () {
+	document.getElementById("articleTitle").value = "";
+	document.getElementById("articleContent").value = "";
+}
+
+function saveArticle(article) {
+	article.id = getNextId();
+	var articles = JSON.parse(localStorage.getItem(LS_ARTICLES_KEY));
+	articles[article.id] = article;
+	localStorage.setItem(LS_ARTICLES_KEY, JSON.stringify(articles));
 }
 
 function createArticle() {
 	var title = document.getElementById('articleTitle').value;
     var content = document.getElementById('articleContent').value;
 	var article = {
-		id: 1,
 		creationDate: '10-04-2016',
 		author: 'Iryna Zheliaskova',
 		title: title,
 		content: content
 	};
+	saveArticle(article);
+	// showArticle();
+	// getArticles();
+
 	console.log(article);
-	localStorage.setItem('article', JSON.stringify(article));
+	clearFields();
 }
 
 
