@@ -15,6 +15,10 @@ body {
 	background-color: #e7e7e7;
  }
 
+.new-article {
+	width: 220px;
+}
+
 form.md-form {
 	width: 60%;
 	margin: 0 auto;
@@ -32,11 +36,15 @@ form .form-title {
 	background-color: #fff;
 }
 
+#articleContainer .row {
+	margin-bottom: 30px;
+}
+
 .article {
 	border: 1px solid #eee;
 	padding: 10px;
 	border-radius: 6px;
-	height: 313px;
+	height: 333px;
 }
 
 .article main {

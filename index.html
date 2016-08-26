@@ -23,8 +23,6 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-hover">
 						    <li class="active"><a href="index.html">Home</a></li>
-						    <li><a href="about.html">About</a></li>
-						    <li><a href="contacts.html">Contacts</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-hover navbar-right">
 						    <li><a href="signin.html">Sign in</a></li>
@@ -39,15 +37,9 @@
 			<div class="jumbotron">
 				<div class="container">
 					<h1>Articles</h1>
-					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view-article-modal">
+					<button type="button" class="btn btn-primary btn-lg new-article" data-toggle="modal" data-target="#view-article-modal">
 						<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
 						Add article
-					</button>
-					<button type="button" class="btn btn-primary btn-lg">
-						<span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-					</button>
-					<button type="button" class="btn btn-primary btn-lg">
-						<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
 					</button>
 					<div id="view-article-modal" class="modal fade" tabindex="-1" role="dialog">
 						<div class="modal-dialog" role="document">
@@ -59,6 +51,7 @@
 									<h3 id="addArticleLabel" class="modal-title">NEW ARTICLE</h3>
 								</div>
 								<div class="modal-body">
+									<input id="articleId" type="text" hidden>
 									<h5>Title</h5>
 									<input id="articleTitle" class="form-control" type="text" placeholder="Title">
 									<h5>Content</h5>
@@ -66,7 +59,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default" onclick="clearFields()" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary" onclick="createArticle()" data-dismiss="modal">Save</button>
+									<button type="button" class="btn btn-primary" onclick="editMode ? updateArticle() : createArticle()" data-dismiss="modal">Save</button>
 								</div>
 							</div>
 						</div>
@@ -81,10 +74,46 @@
 
 		<footer class="superheight"></footer>
 
-	    <!-- Common libs -->
+		<script id="articleTemplate" type="text/template">
+			<article id="art-<%= id %>" class="article">
+				<header>
+					<span>Создано: <%= creationDate %></span>
+					<div class="article-controls pull-right">
+						<a href="#">
+							<span onclick="editArticle(<%= id %>)" data-toggle="modal"
+								  data-target="#view-article-modal" class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<a href="#">
+							<span onclick="deleteArticle(<%= id %>)" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</a>
+					</div>
+				</header>
+				<main>
+					<h2><%= title %></h2>
+					<p><%= text %></p>
+				</main>
+				<footer>
+					<div class="pull-left">
+						<span class="glyphicon glyphicon-user"></span>
+						Author:
+						<br>
+						<%= author %>
+					</div>
+				</footer>
+			</article>
+		</script>
+
+	    <!-- Common scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.js"></script>
 		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
-		<!-- end common libs -->
+		<script src="resources/js/dateUtils.js"></script>
+		<script src="resources/js/initializeSettings.js"></script>
+		<script src="resources/js/dataBase.js"></script>
+		<script src="views/articleView.js"></script>
+		<script src="models/articleModel.js"></script>
+		<script src="controllers/articleController.js"></script>
+		<!-- end common scripts -->
 		<script src="resources/js/script.js"></script>
 	</body>
 </html>
