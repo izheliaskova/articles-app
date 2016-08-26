@@ -72,12 +72,12 @@
 			<div id="articleContainer" class="container"></div>
 		</main>
 
-		<footer class="superheight"></footer>
+		<footer class="jumbotron"></footer>
 
 		<script id="articleTemplate" type="text/template">
 			<article id="art-<%= id %>" class="article">
 				<header>
-					<span>Создано: <%= creationDate %></span>
+					<span>Creation date: <%= creationDate %></span>
 					<div class="article-controls pull-right">
 						<a href="#">
 							<span onclick="editArticle(<%= id %>)" data-toggle="modal"
@@ -103,7 +103,6 @@
 			</article>
 		</script>
 
-	    <!-- Common scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.js"></script>
 		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
@@ -113,7 +112,6 @@
 		<script src="views/articleView.js"></script>
 		<script src="models/articleModel.js"></script>
 		<script src="controllers/articleController.js"></script>
-		<!-- end common scripts -->
 		<script src="resources/js/script.js"></script>
 	</body>
 </html>
