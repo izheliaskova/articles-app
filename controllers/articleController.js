@@ -3,10 +3,9 @@ var articleTitle = "articleTitle";
 var articleContent = "articleContent";
 
 function createArticle() {
-    var article = new Article({
-        title: document.getElementById(articleTitle).value,
-        text: document.getElementById(articleContent).value
-    });
+    var title = document.getElementById(articleTitle).value;
+    var text = document.getElementById(articleContent).value;
+    var article = new Article(title, text);
     articlesModel.add(article);
     articlesView.show(article);
     clearFields();

@@ -1,15 +1,8 @@
-function Article(properties) {
-    this.title = '';
-    this.text = '';
+function Article(title, text) {
+    this.title = title;
+    this.text = text;
     this.creationDate = dateUtils.getStringDate();
     this.author = 'Iryna Zheliaskova';
-
-    if (properties) {
-        for (var key in properties) {
-            if (!properties.hasOwnProperty(key)) continue;
-            this[key] = properties[key];
-        }
-    }
 }
 
 (function () {
@@ -36,28 +29,24 @@ function Article(properties) {
         $db.setItem(ARTICLES_KEY, articles);
     }
 
+    function update(article) {
+        var articles = getAll();
+        articles[article.id] = article;
+        updateAll(articles);
+    }
+
     window.articlesModel = {
         findOne: function(id) {
             var articles = getAll();
             return articles[id];
         },
-        getAll: function() {
-            return getAll();
-        },
+        getAll: getAll,
         add: function(article) {
-            var articles = getAll();
             article.id = getNextId();
-            articles[article.id] = article;
-            updateAll(articles);
+            update(article);
         },
-        updateAll: function(articles) {
-            updateAll(articles);
-        },
-        update: function(article) {
-            var articles = getAll();
-            articles[article.id] = article;
-            updateAll(articles);
-        },
+        updateAll: updateAll,
+        update: update,
         remove: function (id) {
             var articles = getAll();
             delete articles[id];
