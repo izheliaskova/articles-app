@@ -6,4 +6,3 @@ var compiledTemplates = {
 function renderTemplate(template, data) {
     return compiledTemplates[template](data);
 }
-
